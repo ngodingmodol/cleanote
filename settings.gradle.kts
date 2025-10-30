@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "cleanote"
 include(":app")
+include(":data")
