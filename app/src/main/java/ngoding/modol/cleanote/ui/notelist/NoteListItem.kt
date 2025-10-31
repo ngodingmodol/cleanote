@@ -20,6 +20,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import ngoding.modol.cleanote.ui.theme.CleanoteTheme
 
@@ -42,11 +43,11 @@ fun NoteListItem(
                 IconButton(onClick = { menuExpanded = true }) {
                     Icon(
                         imageVector = Icons.Filled.MoreVert,
-                        contentDescription = null
+                        contentDescription = "Note Item Option"
                     )
                     DropdownMenu(
                         expanded = menuExpanded,
-                        onDismissRequest = { menuExpanded = false }
+                        onDismissRequest = { menuExpanded = false },
                     ) {
                         DropdownMenuItem(
                             leadingIcon = { Icon(Icons.Default.Edit, null) },
@@ -54,7 +55,9 @@ fun NoteListItem(
                             onClick = {
                                 menuExpanded = false
                                 onEdit()
-                            }
+                            },
+                            modifier = Modifier
+                                .testTag("optionEdit")
                         )
                         DropdownMenuItem(
                             leadingIcon = { Icon(Icons.Default.Delete, null) },
@@ -62,7 +65,9 @@ fun NoteListItem(
                             onClick = {
                                 menuExpanded = false
                                 onDelete()
-                            }
+                            },
+                            modifier = Modifier
+                                .testTag("optionDelete")
                         )
                     }
                 }
