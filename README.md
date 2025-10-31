@@ -27,7 +27,7 @@ The main focus of this project is not on UI design, but on demonstrating **Clean
 
 ---
 
-## 📱 Screenshots
+## 📱 Demo
 
 ![Demo](demo.gif)
 
